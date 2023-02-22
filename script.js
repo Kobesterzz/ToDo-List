@@ -113,7 +113,7 @@ addBtn.addEventListener("click", () => {
 li.querySelector('span').style.marginRight = '10px';
 
 // Add margin to the button element
-li.querySelector('button').style.marginLeft = '30px';
+li.querySelector('button').style.marginLeft = '0px';
 
     taskList.appendChild(li);
     taskInput.value = "";

@@ -1,9 +1,34 @@
+body{
+  margin:0;
+  padding:0;
+  margin-top:0;
+  width: 100%;
+  height:100%;
+  background: radial-gradient(circle, rgba(175,96,0,1) 40%, rgba(143,0,0,1) 84%);
+  position:fixed;
+  z-index: -1;
+}
+
+
+
+#gradient-canvas {
+  width: 100%;
+  height:100%;
+  background: radial-gradient(circle, rgba(175,96,0,1) 40%, rgba(143,0,0,1) 84%);
+  position:fixed;
+  z-index: -1;
+
+}
+
+
+
 .calendar {
     font-family: Arial;
-    width: 400px;
+    width: 350px;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 0px;
     margin: auto;
+    margin-top: 120px;
   }
   
   .month {
@@ -47,13 +72,13 @@
   }
   
   .today {
-    background-color: #4CAF50;
+    background-color:radial-gradient(circle, rgb(87, 87, 87) 40%, rgb(160, 160, 160)84%);
     color: white;
   }
   
   .selected {
-    background-color: #2195f300;
-    color: rgb(0, 0, 0);
+    background-color:radial-gradient(circle, rgb(87, 87, 87) 40%, rgb(160, 160, 160)84%); 
+    color: rgb(255, 255, 255);
   }
 /*Modal*/
   .modal {
@@ -95,13 +120,15 @@
   }
 
   .container {
-    margin: 2rem auto;
+    margin: 0 auto;
     max-width: 780px;
-    padding: 1rem;
     background-color: #ffcd77;
+    padding: 1rem;
     border-radius: 0.25rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 0;
   }
+  
   
   .todolist{
     display: flex;
@@ -113,7 +140,7 @@
     font-size: 2rem;
     text-align: center;
     font-family: SF pro;
-    margin-bottom: 1rem;
+    
   }
   
   form {
