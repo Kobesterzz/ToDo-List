@@ -9,6 +9,32 @@ body{
   z-index: -1;
 }
 
+.header1{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: sticky;
+  width:100%;
+  top: 0;
+  background-color: #1c1c2c6e;
+  z-index:3;
+}
+
+.title{
+  margin-right: 550px;
+}
+
+.logo{
+  color: rgb(255, 255, 255);
+  margin-left: 45px;
+  font-family: Dreamscape;
+}
+
+
+a{
+  text-decoration: none;
+}
+
 
 #gradient-canvas {
   width: 100%;
@@ -84,6 +110,7 @@ body{
   
   .days div:hover {
     background-color: rgba(255, 255, 255, 0.256);
+    filter: blur(1px);
   }
   
   .today {
@@ -99,7 +126,7 @@ body{
   .modal {
     display:none;
     position:fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
@@ -138,7 +165,7 @@ body{
     margin: 0 auto;
     max-width: 780px;
     
-    background-color:rgba(97, 0, 132, 0.801);
+    background: radial-gradient(circle, rgba(15, 0, 84, 0.889) 40%, rgba(33, 0, 78, 0.5) 84%);
     padding: 1rem;
     border-radius: 0.25rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
