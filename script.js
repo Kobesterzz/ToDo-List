@@ -65,13 +65,60 @@ const days = document.querySelectorAll(".days div");
 
 days.forEach((day) => {
   day.addEventListener("click", () => {
-    if (day.classList.contains("selected")) {
-      day.classList.remove("selected");
-    } else {
-      day.classList.add("selected");
-    }
+    const modal = document.getElementById("modal");
+    modal.style.display = "block";
+    const selectedDate = new Date(currentYear, currentMonth, day.textContent);
+    const modalTitle = document.querySelector("#todo-date");
+    modalTitle.innerHTML = formatDate(selectedDate);
+    const taskList = document.getElementById("task-list");
+    const tasksForDate = getTasks(formatDate(selectedDate));
+    taskList.innerHTML = "";
+    tasksForDate.forEach((task) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span>${task}</span>
+        <button class="delete-btn">-</button>
+      `;
+      // Add margin to the span element
+      li.querySelector("span").style.marginRight = "10px";
+      // Add margin to the button element
+      li.querySelector("button").style.marginLeft = "0px";
+      taskList.appendChild(li);
+      li.querySelector(".delete-btn").addEventListener("click", () => {
+        li.remove();
+        const date = formatDate(selectedDate);
+        const updatedTasks = getTasks(date).filter((t) => t !== task);
+        tasks[date] = updatedTasks;
+      });
+    });
+    const taskInput = document.getElementById("task");
+    const addBtn = document.getElementById("add-btn");
+    addBtn.addEventListener("click", () => {
+      const task = taskInput.value;
+      if (task !== "") {
+        addTask(formatDate(selectedDate), task);
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <span>${task}</span>
+          <button class="delete-btn">-</button>
+        `;
+        // Add margin to the span element
+        li.querySelector("span").style.marginRight = "10px";
+        // Add margin to the button element
+        li.querySelector("button").style.marginLeft = "0px";
+        taskList.appendChild(li);
+        taskInput.value = "";
+        li.querySelector(".delete-btn").addEventListener("click", () => {
+          li.remove();
+          const date = formatDate(selectedDate);
+          const updatedTasks = getTasks(date).filter((t) => t !== task);
+          tasks[date] = updatedTasks;
+        });
+      }
+    });
   });
 });
+
 
 
 
